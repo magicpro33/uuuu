@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US Uranium Mining Companies — Complete Investment Analysis | May 4, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{
+  --bg:#050609;--bg2:#09090e;--s1:#0d1017;--s2:#12161f;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.11);
+  --text:#dde2ec;--muted:#535c6f;--dim:#222838;
+  --green:#2fd47a;--green-d:rgba(47,212,122,0.09);
+  --red:#f04040;--red-d:rgba(240,64,64,0.08);
+  --gold:#d4a843;--gold-l:#f0c866;--gold-d:rgba(212,168,67,0.10);
+  --blue:#4b9fff;--blue-d:rgba(75,159,255,0.09);
+  --teal:#1ecebe;--teal-d:rgba(30,206,190,0.09);
+  --orange:#f07030;--purple:#9b6dff;--amber:#ffb340;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal) 0%,var(--blue) 30%,var(--gold) 60%,var(--orange) 100%);z-index:10;}
+.page{max-width:1200px;margin:0 auto;padding:40px 22px 80px;}
+
+/* HEADER */
+.eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.big-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4.5vw,48px);font-weight:800;line-height:.95;letter-spacing:-.02em;color:#fff;margin-bottom:8px;}
+.big-title em{font-style:normal;color:var(--gold-l);}
+.sub{font-size:12.5px;color:var(--muted);max-width:720px;line-height:1.65;margin-bottom:8px;}
+.disclaimer{background:var(--red-d);border:1px solid rgba(240,64,64,.20);border-radius:6px;padding:8px 13px;font-size:11.5px;color:rgba(240,64,64,.75);margin-bottom:24px;}
+.sh{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:28px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+
+/* POLICY BANNER */
+.policy-banner{background:linear-gradient(135deg,var(--s2),rgba(212,168,67,.05));border:1px solid rgba(212,168,67,.25);border-radius:10px;padding:16px 20px;margin-bottom:20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;}
+.pb-icon{font-size:22px;padding-top:2px;}
+.pb-head{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:5px;}
+.pb-body{font-size:12px;color:var(--muted);line-height:1.7;}
+.pb-body strong{color:var(--text);font-weight:500;}
+
+/* RANKING SUMMARY STRIP */
+.rank-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:24px;}
+@media(max-width:700px){.rank-strip{grid-template-columns:repeat(2,1fr);}}
+.rs-card{background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:12px 14px;position:relative;overflow:hidden;cursor:default;}
+.rs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.rs-1::before{background:linear-gradient(90deg,var(--gold),var(--orange));}
+.rs-2::before{background:linear-gradient(90deg,var(--teal),var(--blue));}
+.rs-3::before{background:linear-gradient(90deg,var(--orange),var(--gold));}
+.rs-4::before{background:linear-gradient(90deg,var(--green),var(--teal));}
+.rs-5::before{background:linear-gradient(90deg,var(--purple),var(--blue));}
+.rs-rank{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--dim);line-height:1;margin-bottom:2px;}
+.rs-ticker{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;letter-spacing:.04em;}
+.rs-t1{color:var(--gold-l);}.rs-t2{color:var(--teal);}.rs-t3{color:var(--orange);}.rs-t4{color:var(--green);}.rs-t5{color:var(--purple);}
+.rs-name{font-size:10px;color:var(--muted);}
+.rs-price{font-family:'Space Mono',monospace;font-size:12px;color:var(--text);margin-top:5px;}
+.rs-upside{font-size:10px;margin-top:1px;}
+
+/* COMPANY CARDS */
+.company-section{background:var(--s1);border:1px solid var(--border);border-radius:12px;margin-bottom:20px;overflow:hidden;}
+.cs-header{padding:20px 22px 16px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start;}
+.cs-rank{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;color:var(--dim);line-height:1;width:50px;}
+.cs-meta{}
+.cs-ticker{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;letter-spacing:.04em;line-height:1;}
+.cs-company{font-size:12px;color:var(--muted);margin-top:2px;}
+.cs-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.tag{font-size:10px;padding:2px 8px;border-radius:3px;border:1px solid;font-family:'Space Mono',monospace;letter-spacing:.06em;}
+.tg{background:rgba(47,212,122,.10);color:var(--green);border-color:rgba(47,212,122,.22);}
+.ta{background:rgba(212,168,67,.10);color:var(--gold);border-color:rgba(212,168,67,.22);}
+.tr{background:rgba(240,64,64,.08);color:var(--red);border-color:rgba(240,64,64,.20);}
+.tb{background:var(--blue-d);color:var(--blue);border-color:rgba(75,159,255,.22);}
+.tt{background:var(--teal-d);color:var(--teal);border-color:rgba(30,206,190,.22);}
+.tp{background:rgba(155,109,255,.10);color:var(--purple);border-color:rgba(155,109,255,.22);}
+
+/* price block */
+.cs-prices{text-align:right;}
+.csp-current{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;line-height:1;}
+.csp-52{font-size:10px;color:var(--muted);margin-top:2px;}
+.csp-target{font-family:'Space Mono',monospace;font-size:11px;margin-top:4px;}
+.csp-upside{font-size:13px;font-weight:500;margin-top:2px;}
+
+/* body */
+.cs-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+@media(max-width:800px){.cs-body{grid-template-columns:1fr;}}
+.cs-col{padding:18px 20px;border-right:1px solid var(--border);}
+.cs-col:last-child{border-right:none;}
+.cs-col-title{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+
+/* fundamentals grid */
+.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.fund-item{background:var(--bg2);border-radius:5px;padding:6px 8px;}
+.fund-label{font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.fund-val{font-size:12px;font-weight:500;}
+.fv-g{color:var(--green);}.fv-r{color:var(--red);}.fv-a{color:var(--gold);}.fv-n{color:var(--text);}
+
+/* timeline */
+.timeline-items{}
+.tl-item{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;font-size:12px;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.tl-dot.done{background:var(--green);}
+.tl-dot.now{background:var(--amber);animation:blink 1.2s infinite;}
+.tl-dot.soon{background:var(--blue);}
+.tl-dot.future{background:var(--dim);border:1px solid var(--border2);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.tl-date{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);flex-shrink:0;width:60px;}
+.tl-text{color:var(--text);line-height:1.45;}
+.tl-text strong{font-weight:500;}
+
+/* scenario blocks */
+.scen-items{display:flex;flex-direction:column;gap:8px;}
+.scen-item{background:var(--bg2);border-radius:6px;padding:10px 12px;}
+.si-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;}
+.si-label{font-size:10px;font-weight:500;}
+.si-label.bull{color:var(--green);}.si-label.base{color:var(--gold);}.si-label.bear{color:var(--red);}
+.si-price{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;}
+.si-price.bull{color:var(--green);}.si-price.base{color:var(--gold);}.si-price.bear{color:var(--red);}
+.si-pct{font-size:10px;font-weight:500;margin-bottom:4px;}
+.si-pct.bull{color:var(--green);}.si-pct.base{color:var(--gold);}.si-pct.bear{color:var(--red);}
+.si-bar{height:4px;background:var(--s1);border-radius:2px;overflow:hidden;margin-bottom:4px;}
+.si-bar-fill{height:100%;border-radius:2px;}
+.si-desc{font-size:10px;color:var(--muted);line-height:1.45;}
+.si-desc strong{color:var(--text);font-weight:500;}
+
+/* chart */
+.chart-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:20px;}
+.ct{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.cw{position:relative;height:260px;}
+
+/* comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;}
+.comp-table th{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:9px 12px;text-align:left;border-bottom:1px solid var(--border2);background:var(--s2);}
+.comp-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:hover td{background:rgba(255,255,255,.012);}
+
+/* money flow callout */
+.mf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:20px;}
+.mf-card{background:var(--s1);border:1px solid var(--border);border-left:3px solid;border-radius:6px;padding:12px 14px;}
+.mf-card.gold{border-left-color:var(--gold);}
+.mf-card.blue{border-left-color:var(--blue);}
+.mf-card.green{border-left-color:var(--green);}
+.mf-card.teal{border-left-color:var(--teal);}
+.mf-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.10em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.mf-val{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--text);}
+.mf-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4;}
+
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fn{font-size:11px;color:var(--dim);max-width:680px;line-height:1.5;}
+.fs{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.10em;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<p class="eyebrow">US Uranium Mining — Complete Investment Analysis — May 4, 2026</p>
+<h1 class="big-title">US Uranium Miners:<br><em>Ranked & Analyzed.</em></h1>
+<p class="sub">All 5 active/near-active US uranium mining companies ranked by production output and profit potential. Current prices, analyst targets, Trump energy bill impact, DOE funding flow, production timelines, and 3-scenario price outcomes for each.</p>
+<div class="disclaimer">⚠ NOT FINANCIAL ADVICE — Educational research only. All prices and targets sourced from analysts and public data as of May 4, 2026. Uranium stocks are highly volatile. Consult a licensed financial advisor before investing.</div>
+
+<!-- TRUMP / DOE POLICY BANNER -->
+<div class="policy-banner">
+  <div class="pb-icon">🇺🇸</div>
+  <div>
+    <p class="pb-head">Trump Energy Bill + DOE $2.7B: What it means for every US uranium miner</p>
+    <p class="pb-body">
+      The One Big Beautiful Bill + nuclear executive orders create a structural, decade-long tailwind for every company below. Key provisions: <strong>Defense Production Act invoked for uranium fuel chain</strong> — mandatory domestic sourcing for government customers. <strong>$2.7B DOE task orders</strong> awarded Jan 2026 to Centrus (HALEU), Orano (LEU), and General Matter. <strong>400 GW nuclear target by 2050</strong> — requires uranium demand to grow from 47M lbs/yr to ~190M lbs/yr. <strong>Uranium added to USGS Critical Minerals List</strong>. <strong>NRC licensing capped at 18 months</strong> — removes the biggest permitting bottleneck. <strong>Russian uranium import ban</strong> (with DOE waivers) creates mandatory US sourcing premium. All five companies below are direct beneficiaries. The question is timing, scale, and execution risk.
+    </p>
+  </div>
+</div>
+
+<!-- DOE / GOVERNMENT MONEY FLOW -->
+<p class="sh">US government money flowing into nuclear fuel chain right now</p>
+<div class="mf-grid">
+  <div class="mf-card gold"><p class="mf-label">DOE enrichment fund</p><p class="mf-val">$2.7B</p><p class="mf-desc">Task orders awarded Jan 2026 — Centrus, Orano, General Matter</p></div>
+  <div class="mf-card blue"><p class="mf-label">Centrus DOE share</p><p class="mf-val">$1.07B</p><p class="mf-desc">HALEU + LEU. Benefits UUUU, UEC, enCore as feed suppliers</p></div>
+  <div class="mf-card green"><p class="mf-label">Uranium demand growth</p><p class="mf-val">4x</p><p class="mf-desc">47M → 190M lbs/yr under 400GW nuclear target by 2050</p></div>
+  <div class="mf-card teal"><p class="mf-label">Trump nuclear EOs</p><p class="mf-val">4</p><p class="mf-desc">Signed May 23, 2025. NRC 18-mo cap. 10 reactors by 2030.</p></div>
+  <div class="mf-card gold"><p class="mf-label">US spot uranium demand</p><p class="mf-val">~15M lbs</p><p class="mf-desc">US supply: ~3M lbs. Gap = massive domestic production opportunity</p></div>
+  <div class="mf-card blue"><p class="mf-label">Russian ban premium</p><p class="mf-val">+$5-10/lb</p><p class="mf-desc">US-origin uranium commands premium over spot due to import ban</p></div>
+</div>
+
+<!-- RANKING STRIP -->
+<p class="sh">Rankings at a glance — by production output and near-term profit potential</p>
+<div class="rank-strip">
+  <div class="rs-card rs-1">
+    <div class="rs-rank">1</div>
+    <div class="rs-ticker rs-t1">UEC</div>
+    <div class="rs-name">Uranium Energy Corp</div>
+    <div class="rs-price">$14.90</div>
+    <div class="rs-upside" style="color:var(--green)">Target $18.95 (+27%)</div>
+  </div>
+  <div class="rs-card rs-2">
+    <div class="rs-rank">2</div>
+    <div class="rs-ticker rs-t2">UUUU</div>
+    <div class="rs-name">Energy Fuels</div>
+    <div class="rs-price">$19.03</div>
+    <div class="rs-upside" style="color:var(--green)">Target $27.25 (+43%)</div>
+  </div>
+  <div class="rs-card rs-3">
+    <div class="rs-rank">3</div>
+    <div class="rs-ticker rs-t3">EU</div>
+    <div class="rs-name">enCore Energy</div>
+    <div class="rs-price">~$2.87</div>
+    <div class="rs-upside" style="color:var(--green)">Target $6.29 (+119%)</div>
+  </div>
+  <div class="rs-card rs-4">
+    <div class="rs-rank">4</div>
+    <div class="rs-ticker rs-t4">URG</div>
+    <div class="rs-name">Ur-Energy</div>
+    <div class="rs-price">$1.61</div>
+    <div class="rs-upside" style="color:var(--green)">Target $2.20 (+37%)</div>
+  </div>
+  <div class="rs-card rs-5">
+    <div class="rs-rank">5</div>
+    <div class="rs-ticker rs-t5">PENMF</div>
+    <div class="rs-name">Peninsula Energy</div>
+    <div class="rs-price">~$0.20</div>
+    <div class="rs-upside" style="color:var(--amber)">High risk / high reward</div>
+  </div>
+</div>
+
+<!-- ════════════ #1 UEC ════════════ -->
+<div class="company-section">
+  <div class="cs-header">
+    <div class="cs-rank">1</div>
+    <div class="cs-meta">
+      <div class="cs-ticker" style="color:var(--gold-l);">UEC — Uranium Energy Corp</div>
+      <div class="cs-company">NYSE American | Corpus Christi, TX | Market Cap ~$3.8B</div>
+      <div class="cs-tags">
+        <span class="tag tg">PRODUCING NOW — 2 platforms</span>
+        <span class="tag tb">Largest US uranium resource base</span>
+        <span class="tag tt">Vertically integrating</span>
+        <span class="tag ta">Goldman target $18 → raised $18+</span>
+        <span class="tag tg">Burke Hollow started Apr 2026</span>
+      </div>
+    </div>
+    <div class="cs-prices">
+      <div class="csp-current" style="color:var(--gold-l);">$14.90</div>
+      <div class="csp-52">52-wk: $5.03 — $20.34</div>
+      <div class="csp-target" style="color:var(--green);">Analyst avg target: $18.95</div>
+      <div class="csp-upside" style="color:var(--green);">+27.2% upside</div>
+    </div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-col">
+      <p class="cs-col-title">Current fundamentals</p>
+      <div class="fund-grid">
+        <div class="fund-item"><p class="fund-label">Revenue TTM</p><p class="fund-val fv-n">~$67M</p></div>
+        <div class="fund-item"><p class="fund-label">Cash on hand</p><p class="fund-val fv-g">$486M</p></div>
+        <div class="fund-item"><p class="fund-label">Debt</p><p class="fund-val fv-g">$0</p></div>
+        <div class="fund-item"><p class="fund-label">Cost per lb</p><p class="fund-val fv-g">$29.90 cash</p></div>
+        <div class="fund-item"><p class="fund-label">Licensed capacity</p><p class="fund-val fv-g">12.1M lbs/yr</p></div>
+        <div class="fund-item"><p class="fund-label">Current output</p><p class="fund-val fv-a">Ramping up</p></div>
+        <div class="fund-item"><p class="fund-label">Analyst rating</p><p class="fund-val fv-g">Strong Buy (5)</p></div>
+        <div class="fund-item"><p class="fund-label">Current ratio</p><p class="fund-val fv-g">28.7x</p></div>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.55;"><strong style="color:var(--text);">Why #1:</strong> Only US uranium company with TWO operational ISR hub-and-spoke platforms simultaneously. Burke Hollow started April 8, 2026 — first new US ISR uranium mine in over a decade. Added UF6 conversion via UR&C unit — building the only vertically integrated US uranium fuel supply chain from mining to conversion. No debt. $486M cash. Trump DPA invocation = UEC wins mandatory government contracts.</p>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">Production timeline</p>
+      <div class="timeline-items">
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">2023–24</span><span class="tl-text">Restarted Christensen Ranch, Wyoming. Sweetwater Mill acquired.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">Sep 2025</span><span class="tl-text">Launched UR&C — US Uranium Refining & Conversion Corp. First NRC license approval.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">Mar 2026</span><span class="tl-text">Christensen Ranch expanded. New header houses added in Wyoming.</span></div>
+        <div class="tl-item"><div class="tl-dot now"></div><span class="tl-date">Apr 2026 ← NOW</span><span class="tl-text"><strong>Burke Hollow started production</strong> — first new US ISR mine in a decade. Two platforms now running.</span></div>
+        <div class="tl-item"><div class="tl-dot soon"></div><span class="tl-date">2027</span><span class="tl-text">Ludeman ISR project, Wyoming — third platform starts. UR&C UF6 conversion operational.</span></div>
+        <div class="tl-item"><div class="tl-dot future"></div><span class="tl-date">2027–28</span><span class="tl-text">First profits expected (Zacks: EPS $0.13 in 2027). Revenue scaling toward $200M+.</span></div>
+        <div class="tl-item"><div class="tl-dot future"></div><span class="tl-date">2028+</span><span class="tl-text">Ramp to 3–5M lbs/yr production. Sell to Centrus, Urenco, and utilities directly.</span></div>
+      </div>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">6-month price scenarios</p>
+      <div class="scen-items">
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bull">Bull — Uranium squeeze + Ludeman advance</span><span class="si-price bull">$22</span></div>
+          <p class="si-pct bull">+47.7% from $14.90</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:35%;background:var(--green);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 35%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Uranium spot breaks $80/lb (Iran war premium). Ludeman permit approved ahead of schedule. UR&C conversion gets major utility contract. Goldman raises target to $22+.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label base">Base — Steady ramp, Burke Hollow scale-up</span><span class="si-price base">$18</span></div>
+          <p class="si-pct base">+20.8% from $14.90</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:45%;background:var(--gold);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 45%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Burke Hollow ramps to planned volumes. Uranium spot holds $65–75. Q2 earnings show improved revenue. Analyst target of $18.95 approached.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bear">Bear — Uranium spot falls on peace deal</span><span class="si-price bear">$10</span></div>
+          <p class="si-pct bear">−32.9% from $14.90</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:20%;background:var(--red);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 20%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Iran peace deal → UAE OPEC reversal → oil crash → energy stocks broadly sell off. Uranium spot breaks below $60. Burke Hollow ramp slower than expected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ #2 UUUU ════════════ -->
+<div class="company-section">
+  <div class="cs-header">
+    <div class="cs-rank">2</div>
+    <div class="cs-meta">
+      <div class="cs-ticker" style="color:var(--teal);">UUUU — Energy Fuels Inc.</div>
+      <div class="cs-company">NYSE American | Lakewood, CO | Market Cap ~$4.6B</div>
+      <div class="cs-tags">
+        <span class="tag tg">Only active conventional uranium mill in US</span>
+        <span class="tag tb">Uranium + Rare Earth dual revenue</span>
+        <span class="tag tt">White Mesa Mill — Utah</span>
+        <span class="tag ta">Profits expected 2027</span>
+        <span class="tag tg">UUUU can sell to Centrus directly</span>
+      </div>
+    </div>
+    <div class="cs-prices">
+      <div class="csp-current" style="color:var(--teal);">$19.03</div>
+      <div class="csp-52">52-wk: $8.37 — $30+ high</div>
+      <div class="csp-target" style="color:var(--green);">Median analyst target: $27.25</div>
+      <div class="csp-upside" style="color:var(--green);">+43.2% upside</div>
+    </div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-col">
+      <p class="cs-col-title">Current fundamentals</p>
+      <div class="fund-grid">
+        <div class="fund-item"><p class="fund-label">2025 Revenue</p><p class="fund-val fv-n">$448.7M</p></div>
+        <div class="fund-item"><p class="fund-label">2026 Rev est.</p><p class="fund-val fv-a">$40M+ growing</p></div>
+        <div class="fund-item"><p class="fund-label">Profit year est.</p><p class="fund-val fv-a">2027</p></div>
+        <div class="fund-item"><p class="fund-label">PE ratio</p><p class="fund-val fv-g">8.9x (cheap)</p></div>
+        <div class="fund-item"><p class="fund-label">Highest target</p><p class="fund-val fv-g">$34</p></div>
+        <div class="fund-item"><p class="fund-label">Analyst rating</p><p class="fund-val fv-g">Strong Buy (5)</p></div>
+        <div class="fund-item"><p class="fund-label">Uranium sold</p><p class="fund-val fv-n">240K lbs U3O8</p></div>
+        <div class="fund-item"><p class="fund-label">REE expansion</p><p class="fund-val fv-g">2027 commercial</p></div>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.55;"><strong style="color:var(--text);">Why #2:</strong> The only active conventional uranium mill in the entire US (White Mesa, Utah). Every ISR miner can send ore to White Mesa for processing — UUUU is the hub of the US uranium supply chain. Plus the rare earth oxide expansion (850–1,000 tons NdPr/yr by 2027) adds a second major revenue stream completely independent of uranium prices. Palantir partnership announced ($300M cost savings). First profits in 2027.</p>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">Production timeline</p>
+      <div class="timeline-items">
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">2024–25</span><span class="tl-text">White Mesa Mill running. Multiple Utah/Colorado/Wyoming mines producing. 240K lbs sold at strong prices.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">Early 2026</span><span class="tl-text">Palantir partnership announced. $300M projected cost savings begin implementation.</span></div>
+        <div class="tl-item"><div class="tl-dot now"></div><span class="tl-date">May 6 ← EARNINGS</span><span class="tl-text"><strong>Q1 2026 earnings today (May 6).</strong> Watch for uranium sales volume and REE expansion update.</span></div>
+        <div class="tl-item"><div class="tl-dot soon"></div><span class="tl-date">2027 H1</span><span class="tl-text">Commercial rare earth oxide production begins. 850–1,000 tons NdPr/yr. Dysprosium and terbium output starts.</span></div>
+        <div class="tl-item"><div class="tl-dot soon"></div><span class="tl-date">2027</span><span class="tl-text">First GAAP profits expected. Zacks EPS consensus: $0.13. Revenue growing toward $200M+.</span></div>
+        <div class="tl-item"><div class="tl-dot future"></div><span class="tl-date">2028–29</span><span class="tl-text">REE Phase 2 expansion. 6,000+ tons NdPr/yr. Uranium production scaling via Pinon Plain, Whirlwind, and Canyon mines.</span></div>
+      </div>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">6-month price scenarios</p>
+      <div class="scen-items">
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bull">Bull — REE contracts + uranium squeeze</span><span class="si-price bull">$30</span></div>
+          <p class="si-pct bull">+57.6% from $19.03</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:30%;background:var(--green);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 30%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Major rare earth contract announced (auto/defense). Uranium spot above $80. Today's Q1 earnings beat. REE commercial production confirmed on schedule.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label base">Base — Steady uranium + REE progress</span><span class="si-price base">$24</span></div>
+          <p class="si-pct base">+26.1% from $19.03</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:45%;background:var(--gold);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 45%</p>
+          <p class="si-desc"><strong>Triggers:</strong> In-line earnings. REE expansion milestones confirmed. Uranium prices stable $65–75. Analyst median target of $27.25 partially approached.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bear">Bear — REE competition + uranium dip</span><span class="si-price bear">$14</span></div>
+          <p class="si-pct bear">−26.4% from $19.03</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:25%;background:var(--red);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 25%</p>
+          <p class="si-desc"><strong>Triggers:</strong> REE expansion delayed. China dumps rare earths below cost to kill competition. Uranium spot falls on surprise peace deal. Q1 miss today.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ #3 EU ════════════ -->
+<div class="company-section">
+  <div class="cs-header">
+    <div class="cs-rank">3</div>
+    <div class="cs-meta">
+      <div class="cs-ticker" style="color:var(--orange);">EU — enCore Energy Corp</div>
+      <div class="cs-company">NASDAQ | Vancouver, BC (US operations) | Market Cap ~$540M</div>
+      <div class="cs-tags">
+        <span class="tag tg">Largest US uranium producer by volume 2024</span>
+        <span class="tag tb">Two ISR plants in South Texas</span>
+        <span class="tag ta">ALL analyst ratings: Strong Buy (5/5)</span>
+        <span class="tag tr">Pre-profit — losses narrowing</span>
+      </div>
+    </div>
+    <div class="cs-prices">
+      <div class="csp-current" style="color:var(--orange);">~$2.87</div>
+      <div class="csp-52">52-wk: ~$1.80 — $4.50</div>
+      <div class="csp-target" style="color:var(--green);">Zacks avg target: $6.29</div>
+      <div class="csp-upside" style="color:var(--green);">+119% upside — highest on list</div>
+    </div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-col">
+      <p class="cs-col-title">Current fundamentals</p>
+      <div class="fund-grid">
+        <div class="fund-item"><p class="fund-label">Status</p><p class="fund-val fv-g">Producing</p></div>
+        <div class="fund-item"><p class="fund-label">2024 production</p><p class="fund-val fv-n">288K lbs U3O8</p></div>
+        <div class="fund-item"><p class="fund-label">2025 production</p><p class="fund-val fv-g">~380K lbs</p></div>
+        <div class="fund-item"><p class="fund-label">EPS (last Q)</p><p class="fund-val fv-a">−$0.03</p></div>
+        <div class="fund-item"><p class="fund-label">EPS est next Q</p><p class="fund-val fv-a">−$0.04</p></div>
+        <div class="fund-item"><p class="fund-label">Analyst rating</p><p class="fund-val fv-g">5/5 Strong Buy</p></div>
+        <div class="fund-item"><p class="fund-label">Plants</p><p class="fund-val fv-n">Rosita + Alta Mesa</p></div>
+        <div class="fund-item"><p class="fund-label">Upside</p><p class="fund-val fv-g">+119% to target</p></div>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.55;"><strong style="color:var(--text);">Why #3:</strong> Was the largest US uranium producer by volume in 2024. Two operational ISR plants in South Texas right now. All 5 covering analysts rate it Strong Buy — that unanimous consensus is rare. Cheapest entry point of all the producers in dollar terms ($2.87). But they sold New Mexico assets in April 2025 which reduces future optionality. Small cap = more volatile but more upside.</p>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">Production timeline</p>
+      <div class="timeline-items">
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">2023</span><span class="tl-text">Commercial production restarted at Rosita and Alta Mesa. 102 tU output.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">2024</span><span class="tl-text">288K lbs produced — became largest US uranium producer by volume. PathCAD software deployed at Alta Mesa.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">Apr 2025</span><span class="tl-text">Sold New Mexico assets to Verdera Energy. Focusing resources on Texas operations.</span></div>
+        <div class="tl-item"><div class="tl-dot now"></div><span class="tl-date">2026 NOW</span><span class="tl-text">Alta Mesa capacity expanding. New satellite ion exchange plant under construction. Total capacity targeting 7,500 GPM.</span></div>
+        <div class="tl-item"><div class="tl-dot soon"></div><span class="tl-date">2026 H2</span><span class="tl-text">Alta Mesa expansion complete. Production ramp toward 600–800K lbs/yr target.</span></div>
+        <div class="tl-item"><div class="tl-dot future"></div><span class="tl-date">2027–28</span><span class="tl-text">Profitability threshold. Revenue scaling with uranium price and expanded Alta Mesa output.</span></div>
+      </div>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">6-month price scenarios</p>
+      <div class="scen-items">
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bull">Bull — Alta Mesa expansion + uranium run</span><span class="si-price bull">$5.50</span></div>
+          <p class="si-pct bull">+91.6% from $2.87</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:30%;background:var(--green);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 30%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Alta Mesa expansion complete ahead of schedule. Uranium spot $75+. Small cap multiple expansion as sector heats up. High analyst target of $7 approached.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label base">Base — Steady output, losses narrowing</span><span class="si-price base">$4.00</span></div>
+          <p class="si-pct base">+39.4% from $2.87</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:45%;background:var(--gold);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 45%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Production continues growing. EPS losses narrow toward zero. MarketBeat $4 target reached. Sector rotation into uranium small caps.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bear">Bear — Uranium price falls, small cap punished</span><span class="si-price bear">$1.80</span></div>
+          <p class="si-pct bear">−37.3% from $2.87</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:25%;background:var(--red);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 25%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Uranium spot falls below $55. Small caps hit harder in risk-off. Alta Mesa expansion delays. Share dilution to fund operations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ #4 URG ════════════ -->
+<div class="company-section">
+  <div class="cs-header">
+    <div class="cs-rank">4</div>
+    <div class="cs-meta">
+      <div class="cs-ticker" style="color:var(--green);">URG — Ur-Energy Inc.</div>
+      <div class="cs-company">NYSE American | Littleton, CO | Market Cap ~$280M</div>
+      <div class="cs-tags">
+        <span class="tag tg">Lost Creek producing</span>
+        <span class="tag tb">Shirley Basin starting mid-2026</span>
+        <span class="tag ta">Canaccord Buy — C$3.25 target</span>
+        <span class="tag tt">Contracts 800K–1.4M lbs/yr 2026–2030</span>
+        <span class="tag tr">Losses narrowing fast</span>
+      </div>
+    </div>
+    <div class="cs-prices">
+      <div class="csp-current" style="color:var(--green);">$1.61</div>
+      <div class="csp-52">52-wk: ~$1.00 — $2.35</div>
+      <div class="csp-target" style="color:var(--green);">Median target: $2.20</div>
+      <div class="csp-upside" style="color:var(--green);">+36.6% upside</div>
+    </div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-col">
+      <p class="cs-col-title">Current fundamentals</p>
+      <div class="fund-grid">
+        <div class="fund-item"><p class="fund-label">Status</p><p class="fund-val fv-g">Lost Creek producing</p></div>
+        <div class="fund-item"><p class="fund-label">Q1 rev (last)</p><p class="fund-val fv-n">$10.45M</p></div>
+        <div class="fund-item"><p class="fund-label">Rev growth est</p><p class="fund-val fv-g">+183%</p></div>
+        <div class="fund-item"><p class="fund-label">EPS est next Q</p><p class="fund-val fv-a">−$0.04</p></div>
+        <div class="fund-item"><p class="fund-label">Analyst rating</p><p class="fund-val fv-g">8/8 Buy</p></div>
+        <div class="fund-item"><p class="fund-label">Contracts</p><p class="fund-val fv-g">800K–1.4M lbs</p></div>
+        <div class="fund-item"><p class="fund-label">Shirley Basin</p><p class="fund-val fv-a">Mid-2026</span></div>
+        <div class="fund-item"><p class="fund-label">Licensed cap</p><p class="fund-val fv-g">1M lbs/yr</p></div>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.55;"><strong style="color:var(--text);">Why #4:</strong> Smallest of the producers but with the most locked-in revenue visibility. Multi-year sales contracts covering 800K–1.4M lbs/yr from 2026–2030 at floor prices above spot — rare for any uranium company. Shirley Basin adds a second Wyoming platform mid-2026. Revenue growth estimate of +183% is the highest of any company on this list. 8/8 analyst Buy consensus. Low share price = high percentage upside potential from small catalysts.</p>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">Production timeline</p>
+      <div class="timeline-items">
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">2022–25</span><span class="tl-text">Lost Creek Wyoming operational. Consistent ISR production. Revenue $5–15M/quarter.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">Feb 2026</span><span class="tl-text">Shirley Basin: all ion exchange columns installed, 469 wells pilot drilled in Mine Unit 1.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">Apr 2026</span><span class="tl-text">Canaccord Buy initiation C$3.25. Shirley Basin operations confirmed starting.</span></div>
+        <div class="tl-item"><div class="tl-dot now"></div><span class="tl-date">Mid-2026 ← SOON</span><span class="tl-text"><strong>Shirley Basin starts production</strong> — licensed 385 tU/yr from wellfield. Doubles URG's production footprint.</span></div>
+        <div class="tl-item"><div class="tl-dot soon"></div><span class="tl-date">2026 H2</span><span class="tl-text">Revenue scaling to $30–50M/quarter with both plants running. Contract deliveries ramping.</span></div>
+        <div class="tl-item"><div class="tl-dot future"></div><span class="tl-date">2027–28</span><span class="tl-text">Profitability threshold reached. Lost Soldier and Lucky Mc Mine sites next for development.</span></div>
+      </div>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">6-month price scenarios</p>
+      <div class="scen-items">
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bull">Bull — Shirley Basin online + uranium run</span><span class="si-price bull">$2.60</span></div>
+          <p class="si-pct bull">+61.5% from $1.61</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:35%;background:var(--green);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 35%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Shirley Basin hits production milestones on schedule. Uranium spot $75+. Revenue jump visible in next earnings. Canaccord C$3.25 target approach.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label base">Base — Shirley Basin ramp, steady revenue</span><span class="si-price base">$2.00</span></div>
+          <p class="si-pct base">+24.2% from $1.61</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:45%;background:var(--gold);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 45%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Shirley Basin starts as expected. Contract deliveries confirm. Revenue growth visible. Median analyst target $2.20 partially reached.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bear">Bear — Shirley Basin delay, uranium dip</span><span class="si-price bear">$1.20</span></div>
+          <p class="si-pct bear">−25.5% from $1.61</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:20%;background:var(--red);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 20%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Shirley Basin commissioning delayed. Uranium spot drops below $55. Small/micro cap hit hardest in sector sell-off. Share dilution risk.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ #5 PENMF ════════════ -->
+<div class="company-section">
+  <div class="cs-header">
+    <div class="cs-rank">5</div>
+    <div class="cs-meta">
+      <div class="cs-ticker" style="color:var(--purple);">PENMF — Peninsula Energy</div>
+      <div class="cs-company">OTC Markets (Australian listed) | Denver, CO | Small Cap</div>
+      <div class="cs-tags">
+        <span class="tag ta">Lance project restarted Dec 2024</span>
+        <span class="tag tp">Only US ISR acid leach operation</span>
+        <span class="tag tr">High risk — OTC markets only</span>
+        <span class="tag tr">Very limited analyst coverage</span>
+      </div>
+    </div>
+    <div class="cs-prices">
+      <div class="csp-current" style="color:var(--purple);">~$0.20</div>
+      <div class="csp-52">Extremely volatile — penny stock</div>
+      <div class="csp-target" style="color:var(--amber);">Limited coverage — speculative</div>
+      <div class="csp-upside" style="color:var(--amber);">High risk / potentially high reward</div>
+    </div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-col">
+      <p class="cs-col-title">Current fundamentals</p>
+      <div class="fund-grid">
+        <div class="fund-item"><p class="fund-label">Status</p><p class="fund-val fv-a">Restarted Dec 2024</p></div>
+        <div class="fund-item"><p class="fund-label">Method</p><p class="fund-val fv-n">ISR acid leach (unique)</p></div>
+        <div class="fund-item"><p class="fund-label">Location</p><p class="fund-val fv-n">Lance project, Wyoming</p></div>
+        <div class="fund-item"><p class="fund-label">Listing</p><p class="fund-val fv-r">OTC / Australian ASX</p></div>
+        <div class="fund-item"><p class="fund-label">Analyst coverage</p><p class="fund-val fv-r">Very limited</p></div>
+        <div class="fund-item"><p class="fund-label">Liquidity</p><p class="fund-val fv-r">Low on OTC</p></div>
+        <div class="fund-item"><p class="fund-label">Cap size</p><p class="fund-val fv-a">Micro cap</p></div>
+        <div class="fund-item"><p class="fund-label">Risk level</p><p class="fund-val fv-r">Very high</p></div>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.55;"><strong style="color:var(--text);">Why #5 / Speculative only:</strong> Peninsula restarted production at Lance in December 2024 — a positive milestone. They operate the only US ISR uranium recovery facility using acid leach technology, which can access uranium that alkaline ISR cannot. Very small, limited analyst coverage, low OTC liquidity, and Australian primary listing make this a high-risk speculative play. Only appropriate for small, lottery-ticket-sized allocations. Not a core holding.</p>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">Production timeline</p>
+      <div class="timeline-items">
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">Dec 2024</span><span class="tl-text">Production restarted at Lance project, Wyoming. First US acid-leach ISR restart.</span></div>
+        <div class="tl-item"><div class="tl-dot done"></div><span class="tl-date">2025</span><span class="tl-text">Operational challenges. Production below initial guidance. Several offtake contracts terminated.</span></div>
+        <div class="tl-item"><div class="tl-dot now"></div><span class="tl-date">2026 NOW</span><span class="tl-text">2026 guidance: 155–195 tU production. Ross Central Processing Plant has 770 tU/yr capacity.</span></div>
+        <div class="tl-item"><div class="tl-dot soon"></div><span class="tl-date">2026–27</span><span class="tl-text">Scale up toward 500K+ lbs/yr if operational challenges resolved. Ross plant capacity far exceeds current output.</span></div>
+        <div class="tl-item"><div class="tl-dot future"></div><span class="tl-date">2027–28</span><span class="tl-text">Revenue positive if uranium stays $65+/lb and production hits 500K+ lbs/yr. Still speculative.</span></div>
+      </div>
+    </div>
+    <div class="cs-col">
+      <p class="cs-col-title">6-month price scenarios</p>
+      <div class="scen-items">
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bull">Bull — Production hits guidance, sector run</span><span class="si-price bull">$0.45</span></div>
+          <p class="si-pct bull">+125% from ~$0.20</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:20%;background:var(--green);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 20%</p>
+          <p class="si-desc"><strong>Triggers:</strong> 2026 guidance of 155–195 tU achieved. Uranium sector uranium stocks broadly re-rate higher. OTC volume increases. New offtake contract signed.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label base">Base — Steady ops, limited re-rating</span><span class="si-price base">$0.25</span></div>
+          <p class="si-pct base">+25% from ~$0.20</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:40%;background:var(--gold);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 40%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Production continues without major issues. Uranium prices stable. Limited re-rating due to thin analyst coverage and OTC listing discount.</p>
+        </div>
+        <div class="scen-item">
+          <div class="si-header"><span class="si-label bear">Bear — Operational issues continue</span><span class="si-price bear">$0.10</span></div>
+          <p class="si-pct bear">−50% from ~$0.20</p>
+          <div class="si-bar"><div class="si-bar-fill" style="width:40%;background:var(--red);"></div></div>
+          <p style="font-size:10px;color:var(--muted);margin-bottom:3px;">Probability: 40%</p>
+          <p class="si-desc"><strong>Triggers:</strong> Lance acid leach system underperforms again. Further offtake terminations. Liquidity squeeze. Dilutive capital raise needed. Uranium sector sell-off hits weakest names first.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON CHART -->
+<div class="chart-card">
+  <p class="ct">Analyst price targets vs current prices — % upside by company</p>
+  <div class="cw"><canvas id="upsideChart"></canvas></div>
+</div>
+
+<!-- SIDE BY SIDE COMPARISON TABLE -->
+<p class="sh">Head-to-head comparison — all 5 companies</p>
+<div style="background:var(--s1);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;">
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th style="color:var(--gold-l);">UEC</th>
+        <th style="color:var(--teal);">UUUU</th>
+        <th style="color:var(--orange);">EU</th>
+        <th style="color:var(--green);">URG</th>
+        <th style="color:var(--purple);">PENMF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:500;">Current price</td>
+        <td style="color:var(--gold-l);font-family:'Space Mono',monospace;">$14.90</td>
+        <td style="color:var(--teal);font-family:'Space Mono',monospace;">$19.03</td>
+        <td style="color:var(--orange);font-family:'Space Mono',monospace;">$2.87</td>
+        <td style="color:var(--green);font-family:'Space Mono',monospace;">$1.61</td>
+        <td style="color:var(--purple);font-family:'Space Mono',monospace;">~$0.20</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;">Analyst target</td>
+        <td style="color:var(--green);">$18.95 (+27%)</td>
+        <td style="color:var(--green);">$27.25 (+43%)</td>
+        <td style="color:var(--green);">$6.29 (+119%)</td>
+        <td style="color:var(--green);">$2.20 (+37%)</td>
+        <td style="color:var(--amber);">Speculative</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;">Status</td>
+        <td style="color:var(--green);">2 platforms producing</td>
+        <td style="color:var(--green);">Mill + mines producing</td>
+        <td style="color:var(--green);">2 ISR plants producing</td>
+        <td style="color:var(--gold);">Lost Creek + Shirley Basin (mid-2026)</td>
+        <td style="color:var(--amber);">Restarted Dec 2024</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;">Debt</td>
+        <td style="color:var(--green);">$0</td>
+        <td style="color:var(--gold);">Minimal</td>
+        <td style="color:var(--gold);">Low</td>
+        <td style="color:var(--gold);">Low</td>
+        <td style="color:var(--red);">Unknown / risk</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;">Profit year est.</td>
+        <td style="color:var(--gold);">2027</td>
+        <td style="color:var(--gold);">2027</td>
+        <td style="color:var(--gold);">2027–28</td>
+        <td style="color:var(--gold);">2027–28</td>
+        <td style="color:var(--red);">2028+ speculative</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;">Trump bill fit</td>
+        <td style="color:var(--green);">Maximum — DPA + 2 platforms</td>
+        <td style="color:var(--green);">Maximum — only US mill + REE</td>
+        <td style="color:var(--green);">High — largest volume producer</td>
+        <td style="color:var(--green);">High — contracted + expanding</td>
+        <td style="color:var(--gold);">Medium — limited scale</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;">Unique moat</td>
+        <td style="color:var(--text);">Only 2-platform ISR + UF6 conversion</td>
+        <td style="color:var(--text);">Only US conventional mill + REE</td>
+        <td style="color:var(--text);">Largest Texas ISR volume</td>
+        <td style="color:var(--text);">Contracted revenue floor 2026–2030</td>
+        <td style="color:var(--text);">Only acid leach ISR in US</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;">Risk level</td>
+        <td style="color:var(--gold);">Medium</td>
+        <td style="color:var(--gold);">Medium</td>
+        <td style="color:var(--gold);">Medium-High</td>
+        <td style="color:var(--gold);">Medium-High</td>
+        <td style="color:var(--red);">Very high</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p class="fn">Sources: Robinhood (live prices May 4, 2026), Zacks, MarketBeat, TipRanks, StocksToTrade, stockanalysis.com, World Nuclear Association, 247WallSt, Simply Wall St, DOE Energy.gov domestic LEU supply chain page, SEC 8-K filings (UEC, UUUU), mining-technology.com (Burke Hollow), Canaccord (URG initiation). NOT FINANCIAL ADVICE. Consult a licensed financial advisor before investing.</p>
+  <p class="fs">AI UPSCALE LLC — US URANIUM MINERS — MAY 4 2026</p>
+</div>
+
+</div>
+
+<script>
+const ctx = document.getElementById('upsideChart').getContext('2d');
+const companies = ['UEC\n$14.90','UUUU\n$19.03','EU\n$2.87','URG\n$1.61','PENMF\n~$0.20'];
+const currentPrices = [14.90, 19.03, 2.87, 1.61, 0.20];
+const targetPrices = [18.95, 27.25, 6.29, 2.20, 0.45];
+const upside = [27.2, 43.2, 119.2, 36.6, 125];
+const barColors = ['rgba(212,168,67,.25)','rgba(30,206,190,.22)','rgba(240,112,48,.22)','rgba(47,212,122,.20)','rgba(155,109,255,.20)'];
+const barBorders = ['#d4a843','#1ecebe','#f07030','#2fd47a','#9b6dff'];
+
+new Chart(ctx,{
+  type:'bar',
+  data:{
+    labels:companies,
+    datasets:[
+      {label:'Current Price ($)',data:currentPrices,backgroundColor:barColors,borderColor:barBorders,borderWidth:1.5,borderRadius:4,yAxisID:'y'},
+      {label:'Analyst Target ($)',data:targetPrices,type:'line',borderColor:'#ffb340',backgroundColor:'transparent',borderWidth:2,borderDash:[6,3],pointRadius:5,pointBackgroundColor:'#ffb340',tension:0,yAxisID:'y'},
+      {label:'Upside %',data:upside,type:'line',borderColor:'rgba(75,159,255,0.7)',backgroundColor:'transparent',borderWidth:2,pointRadius:5,pointBackgroundColor:'#4b9fff',tension:0,yAxisID:'y2'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:true,labels:{color:'#535c6f',font:{size:11},boxWidth:12,padding:12}},
+      tooltip:{backgroundColor:'#0d1017',borderColor:'rgba(255,255,255,.07)',borderWidth:1,titleColor:'#535c6f',bodyColor:'#dde2ec',callbacks:{label:c=>c.dataset.yAxisID==='y2'?' Upside: +'+c.raw+'%':' $'+c.raw}}
+    },
+    scales:{
+      x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#535c6f',font:{family:'Space Mono',size:9},maxRotation:0},border:{display:false}},
+      y:{position:'left',grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#535c6f',font:{size:10},callback:v=>'$'+v},title:{display:true,text:'Price ($)',color:'#535c6f',font:{size:10}},border:{display:false}},
+      y2:{position:'right',grid:{drawOnChartArea:false},ticks:{color:'#4b9fff',font:{size:10},callback:v=>'+'+v+'%'},title:{display:true,text:'Upside %',color:'#4b9fff',font:{size:10}},border:{display:false}}
+    }
+  }
+});
+</script>
+</body>
+</html>
